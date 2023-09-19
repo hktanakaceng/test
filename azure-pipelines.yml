@@ -56,13 +56,9 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzureCLI@2
-            displayName: Deploy to containerapp
+          - task: AzureContainerApps@1
             inputs:
               azureSubscription: $(armServiceConnection)
-              scriptType: 'bash'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                az config set extension.use_dynamic_install=yes_without_prompt
-                az containerapp update -n $(containerAppName) -g $(resourceGroupName) \
-                  --image $(containerRegistry)/$(imageRepository):$(tag)
+              containerAppName: $(containerAppName)
+              resourceGroup: $(resourceGroupName)
+              imageToDeploy: $(containerRegistry)/$(imageRepository):$(tag)
