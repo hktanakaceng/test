@@ -18,7 +18,7 @@ variables:
   tag: '$(Build.BuildId)'
   environmentName: 'enviroment-aca-test' 
   resourceGroupName: 'rg-smaluna-migration-poc'
-  containerAppName: 'test-001'
+  containerAppName: 'test-container-app'
   containerAppEnvironment: 'maeda-test-tmp'
   armServiceConnection: 'service-connection-aca-test'
 
