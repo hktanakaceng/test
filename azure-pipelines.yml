@@ -25,37 +25,6 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-stages:
-- stage: Build
-  displayName: Build and push stage
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
-- stage: Deploy
-  displayName: Deploy stage
-  dependsOn: Build
-
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
-    environment: $(environmentName)
-    strategy:
-      runOnce:
-        deploy:
           steps:
           - task: AzureContainerApps@1
             inputs:
@@ -63,4 +32,4 @@ stages:
               azureSubscription: $(armServiceConnection)
               containerAppName: $(containerAppName)
               resourceGroup: $(resourceGroupName)
-              imageToDeploy: $(containerRegistry)/$(imageRepository):$(tag)
+              imageToDeploy: $(containerRegistry)/$(imageRepository):15
