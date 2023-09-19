@@ -18,7 +18,8 @@ variables:
   tag: '$(Build.BuildId)'
   environmentName: 'enviroment-aca-test' 
   resourceGroupName: 'rg-smaluna-migration-poc'
-  containerAppName: 'maeda-test-tmp'
+  containerAppName: 'test-001'
+  containerAppEnvironment: 'maeda-test-tmp'
   armServiceConnection: 'service-connection-aca-test'
 
   # Agent VM image name
@@ -58,6 +59,7 @@ stages:
           steps:
           - task: AzureContainerApps@1
             inputs:
+              containerAppEnvironment: $(containerAppEnvironment)
               azureSubscription: $(armServiceConnection)
               containerAppName: $(containerAppName)
               resourceGroup: $(resourceGroupName)
