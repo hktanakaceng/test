@@ -15,7 +15,7 @@ variables:
   containerRegistry: 'smalunacontainerregistrytest001.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
-  environmentName: 'environment-aca-test' 
+  environmentName: 'maeda-test-tmp' 
   resourceGroupName: 'rg-smaluna-migration-poc'
   containerAppName: 'maeda-test-tmp'
 
