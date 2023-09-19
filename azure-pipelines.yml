@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '4a2862eb-3b61-4e4f-969f-901852e77e1c'
+  dockerRegistryServiceConnection: 'service-connection-acr'
   imageRepository: 'dockerimage'
   containerRegistry: 'smalunacontainerregistrytest001.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
