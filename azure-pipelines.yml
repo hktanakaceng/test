@@ -18,6 +18,7 @@ variables:
   environmentName: 'enviroment-aca-test' 
   resourceGroupName: 'rg-smaluna-migration-poc'
   containerAppName: 'maeda-test-tmp'
+  armServiceConnection: 'service-connection-aca-test'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
