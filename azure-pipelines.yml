@@ -2,7 +2,6 @@
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-
 trigger:
 - main
 
@@ -13,7 +12,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'service-connection-acr'
   imageRepository: 'dockerimage'
-  containerRegistry: 'smalunacontainerregistrytest001.azurecr.io'
+  containerRegistry: 'acrsmaluna.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   environmentName: 'enviroment-aca-test' 
