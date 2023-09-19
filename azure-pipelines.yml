@@ -15,6 +15,9 @@ variables:
   containerRegistry: 'smalunacontainerregistrytest001.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
+  environmentName: 'environment-aca-test' 
+  resourceGroupName: 'rg-smaluna-migration-poc'
+  containerAppName: 'maeda-test-tmp'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -37,3 +40,27 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: $(environmentName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureCLI@2
+            displayName: Deploy to containerapp
+            inputs:
+              azureSubscription: $(armServiceConnection)
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az config set extension.use_dynamic_install=yes_without_prompt
+                az containerapp update -n $(containerAppName) -g $(resourceGroupName) \
+                  --image $(containerRegistry)/$(imageRepository):$(tag)"
