@@ -25,6 +25,7 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
+- stage: Deploy
           steps:
           - task: AzureContainerApps@1
             inputs:
