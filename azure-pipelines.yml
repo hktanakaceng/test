@@ -31,7 +31,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    environment: $(enviromentName)
+    enviroment: $(enviromentName)
     pool:
       vmImage: $(vmImageName)
     steps:
@@ -53,7 +53,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: $(enviromentName)
+    enviroment: $(enviromentName)
     strategy:
       runOnce:
         deploy:
