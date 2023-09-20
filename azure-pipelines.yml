@@ -15,7 +15,7 @@ variables:
   containerRegistry: 'acrsmaluna.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
-  enviromentName: 'enviroment-aca-test' 
+  environmentName: 'environment-aca-test' 
   resourceGroupName: 'rg-smaluna-migration-poc'
   containerAppName: 'test-container-app'
   containerAppEnvironment: 'maeda-test-tmp'
@@ -51,7 +51,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    enviroment: $(enviromentName)
+    environment: $(environmentName)
     strategy:
       runOnce:
         deploy:
