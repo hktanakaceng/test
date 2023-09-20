@@ -15,7 +15,7 @@ variables:
   containerRegistry: 'acrsmaluna.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
-  environmentName: 'environment-aca-test' 
+#  environmentName: 'environment-aca-test' 
   buildenvironmentName: 'environment-build' 
   deployenvironmentName: 'environment-deploy' 
   resourceGroupName: 'rg-smaluna-migration-poc'
@@ -30,7 +30,7 @@ stages:
 - stage: Build
   displayName: Build and push stage
   jobs:
-  - deployment: Build
+  - deployment: deploy
     displayName: Build
     pool:
       vmImage: $(vmImageName)
