@@ -10,9 +10,9 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'service-connection-acr'
+  dockerRegistryServiceConnection: 'service-connection-acr-test'
   imageRepository: 'dockerimage'
-  containerRegistry: 'acrsmaluna.azurecr.io'
+  containerRegistry: 'acrsmalunapoc.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   buildenvironmentName: 'environment-build' 
