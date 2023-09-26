@@ -10,15 +10,15 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'service-connection-acr-test'
+  dockerRegistryServiceConnection: 'service-connection-acr'
   imageRepository: 'dockerimage'
-  containerRegistry: 'acrsmalunapoc.azurecr.io'
+  containerRegistry: 'acrsmaluna.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   buildenvironmentName: 'environment-build' 
   deployenvironmentName: 'environment-deploy' 
   resourceGroupName: 'rg-smaluna-migration-poc'
-  containerAppName: 'test-container-app-001'
+  containerAppName: 'test-container-app'
   containerAppEnvironment: 'maeda-test-tmp'
   armServiceConnection: 'service-connection-aca-test'
 
