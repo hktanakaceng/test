@@ -2,7 +2,6 @@
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-
 trigger:
 - main
 
@@ -19,7 +18,7 @@ variables:
   buildenvironmentName: 'environment-build' 
   deployenvironmentName: 'environment-deploy' 
   resourceGroupName: 'rg-smaluna-migration-poc'
-  containerAppName: 'test-blue-green'
+  containerAppName: 'test-container-app'
   containerAppEnvironment: 'maeda-test-tmp'
   armServiceConnection: 'service-connection-aca-test'
 
