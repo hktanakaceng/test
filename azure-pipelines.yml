@@ -18,7 +18,7 @@ variables:
   buildenvironmentName: 'environment-build' 
   deployenvironmentName: 'environment-deploy' 
   resourceGroupName: 'rg-smaluna-migration-poc'
-  containerAppName: 'test-container-app'
+  containerAppName: 'test-container-app-001'
   containerAppEnvironment: 'maeda-test-tmp'
   armServiceConnection: 'service-connection-aca-test'
 
